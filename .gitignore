@@ -1,0 +1,8 @@
+logs/
+.cache/
+.openclaw/
+*.pid
+*.log
+__pycache__/
+.pytest_cache/
+.DS_Store

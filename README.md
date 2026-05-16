@@ -52,7 +52,7 @@ Find emails from Saqib in the sample mailbox.
 
 - A bundled sample mailbox at `data/Outlook.pst`
 - A host-side PST service on port `9003`
-- A native OpenClaw workspace with a `pst-mail` skill
+- A native OpenClaw workspace restricted to the `pst-mail` skill
 - A local Ollama/Qwen model path
 - Start, stop, dashboard, prerequisite, and smoke-test scripts
 
@@ -113,3 +113,6 @@ Show the dashboard URL and token:
 This project deliberately does not install or use NemoClaw, OpenShell, Docker,
 or vLLM. Native OpenClaw runs on the host and calls the PST service at
 `http://127.0.0.1:9003`.
+
+The setup script sets `agents.defaults.skills` to `["pst-mail"]` so unrelated
+bundled skills, such as MCP/Blender helpers, are not exposed to this agent.

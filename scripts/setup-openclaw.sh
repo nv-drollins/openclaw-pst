@@ -112,9 +112,11 @@ openclaw --profile "$PROFILE" onboard \
   --json >/dev/null
 
 openclaw --profile "$PROFILE" models set "$MODEL_REF"
+openclaw --profile "$PROFILE" config set agents.defaults.skills '["pst-mail"]' --strict-json >/dev/null
 CONFIG_FILE_RAW="$(openclaw --profile "$PROFILE" config file)"
 CONFIG_FILE="$(expand_path "$CONFIG_FILE_RAW")"
 write_gateway_token "$CONFIG_FILE" "$GATEWAY_TOKEN"
 openclaw --profile "$PROFILE" config validate >/dev/null
 
 echo "OpenClaw profile '$PROFILE' is configured with model '$MODEL_REF'"
+echo "OpenClaw profile '$PROFILE' is restricted to the pst-mail skill"
